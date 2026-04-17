@@ -49,6 +49,9 @@ SourceArt/**/*.tga
 Binaries/*
 Plugins/**/Binaries/*
 
+#FMOD
+Content/FMOD/*
+
 # Builds
 Build/*
 
