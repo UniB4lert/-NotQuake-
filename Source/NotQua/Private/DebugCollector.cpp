@@ -15,10 +15,13 @@ void UDebugCollector::ExampleFunction(FString InExample, FString& outExample) {
 
 
 void UDebugCollector::DataCollector(FVector WorldLocation, FVector ForwardVector, FColor PlayerColor) {
-	FString FilePath = FPaths::ProjectSavedDir() + TEXT("PlayerHistory.csv");
 
+	//The path to the CSV save location
+    FString FilePath = FPaths::ProjectSavedDir() + TEXT("PlayerHistory.csv");
+
+    //Turns input into csv lines.
+    //%f = float, %d = integer for whatever reason
     FString CSVLine = FString::Printf(TEXT("%f,%f,%f,%f,%f,%f,%d,%d,%d\n"),
-
         WorldLocation.X,
         WorldLocation.Y,
         WorldLocation.Z,
@@ -30,19 +33,20 @@ void UDebugCollector::DataCollector(FVector WorldLocation, FVector ForwardVector
         PlayerColor.R,
         PlayerColor.G,
         PlayerColor.B
+        //Chronologically references the percentages
     );
 
-    FFileHelper::SaveStringToFile(
-        CSVLine,
+    FFileHelper::SaveStringToFile(CSVLine,
         *FilePath,
         FFileHelper::EEncodingOptions::AutoDetect,
         &IFileManager::Get(),
-        FILEWRITE_Append
-    );
+        FILEWRITE_Append);
+        //ensures that we add onto the csv, instead of replacing it. 
 		
 }
 
 
+//& is super important because otherwise you're grabbing a copy of the array not the actual array
 bool UDebugCollector::LoadCSV(TArray<FCSVRow>& OutRowArray) {
     FString path = FPaths::ProjectSavedDir() + TEXT("PlayerHistory.csv");
     TArray<FString> Lines;
@@ -50,7 +54,6 @@ bool UDebugCollector::LoadCSV(TArray<FCSVRow>& OutRowArray) {
 
     for (const FString& Line : Lines)
     {
-
         //just for debug
         UE_LOG(LogTemp, Warning, TEXT("%s"), *Line);
 
@@ -59,13 +62,12 @@ bool UDebugCollector::LoadCSV(TArray<FCSVRow>& OutRowArray) {
         //Grab the values from the CSV, cut out the commas and cull any empty chars just to be sure.
         Line.ParseIntoArray(rowPieces, TEXT(","), true);
 
-        //Check if the row has exactly 9 values (3 vector3s). If it doesn't skip to the next entry.
+        //Check if the row has exactly 9 values (3 vector3s). If it doesn't skip to the next row.
         //This shouldn't ever actually happen but put it here just in case.
-        if (rowPieces.Num() != 9)
-            continue;
+        if (rowPieces.Num() != 9) continue;
 
 
-        //create the custom struct inheriting from FCSVRow
+        //Fill out the struct inheriting from FCSVRow
         FCSVRow Row;
         Row.WorldLocation = FVector(
             FCString::Atof(*rowPieces[0]), 

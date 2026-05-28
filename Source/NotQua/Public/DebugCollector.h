@@ -11,7 +11,7 @@
 USTRUCT(BlueprintType)
 struct FCSVRow : public FTableRowBase
 {
-
+    GENERATED_BODY()
     //Custom Struct for player locational data 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
     FVector WorldLocation;
@@ -34,7 +34,7 @@ struct FCSVRow : public FTableRowBase
 UCLASS()
 class NOTQUA_API UDebugCollector : public UBlueprintFunctionLibrary
 {
-
+    GENERATED_BODY()
 
 public:
 
@@ -43,7 +43,7 @@ public:
 
     UFUNCTION(BlueprintCallable)
     static void DataCollector(FVector WorldLocation, FVector ForwardVector, FColor PlayerColor);
-        
+
     UFUNCTION(BlueprintCallable)
     static bool LoadCSV(TArray<FCSVRow>& OutRows);
 
