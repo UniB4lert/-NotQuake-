@@ -1,0 +1,14 @@
+{
+	"BuildId": "33043543",
+	"Modules": 
+	{
+		"EIKEditor": "UnrealEditor-EIKEditor.dylib",
+		"EIKLoginMethods": "UnrealEditor-EIKLoginMethods.dylib",
+		"EIKShared": "UnrealEditor-EIKShared.dylib",
+		"EIKVoiceChat": "UnrealEditor-EIKVoiceChat.dylib",
+		"EIKWeb": "UnrealEditor-EIKWeb.dylib",
+		"EOSIntegrationKit": "UnrealEditor-EOSIntegrationKit.dylib",
+		"OnlineSubsystemEIK": "UnrealEditor-OnlineSubsystemEIK.dylib",
+		"SocketSubsystemEIK": "UnrealEditor-SocketSubsystemEIK.dylib"
+	}
+}
