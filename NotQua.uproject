@@ -45,6 +45,10 @@
 		{
 			"Name": "SpeedTreeImporter",
 			"Enabled": false
+		},
+		{
+			"Name": "Fab",
+			"Enabled": false
 		}
 	],
 	"TargetPlatforms": [
