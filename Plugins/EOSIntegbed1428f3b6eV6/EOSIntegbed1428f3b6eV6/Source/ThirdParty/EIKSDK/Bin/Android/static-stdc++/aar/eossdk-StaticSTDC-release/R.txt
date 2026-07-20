@@ -1,0 +1,3 @@
+int color eos_customTabToolbarColor 0x0
+int string eos_login_protocol_scheme 0x0
+int xml eossdk_backup_rules 0x0
