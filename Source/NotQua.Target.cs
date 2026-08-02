@@ -11,5 +11,9 @@ public class NotQuaTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 
 		ExtraModuleNames.AddRange( new string[] { "NotQua" } );
+
+		// add logging to shipping build
+		//BuildEnvironment = TargetBuildEnvironment.Unique;
+		//bUseLoggingInShipping = true;
 	}
 }
