@@ -13,7 +13,8 @@ public class NotQuaTarget : TargetRules
 		ExtraModuleNames.AddRange( new string[] { "NotQua" } );
 
 		// add logging to shipping build
-		//BuildEnvironment = TargetBuildEnvironment.Unique;
-		//bUseLoggingInShipping = true;
+		BuildEnvironment = TargetBuildEnvironment.Unique;
+		bUseLoggingInShipping = true;
+		bWarningsAsErrors = false;
 	}
 }
