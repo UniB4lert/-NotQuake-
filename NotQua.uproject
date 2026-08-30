@@ -41,6 +41,18 @@
 		{
 			"Name": "SkeletalMeshModelingTools",
 			"Enabled": true
+		},
+		{
+			"Name": "Fab",
+			"Enabled": false
+		},
+		{
+			"Name": "SpeedTreeImporter",
+			"Enabled": false
+		},
+		{
+			"Name": "OpenImageDenoise",
+			"Enabled": false
 		}
 	]
 }
