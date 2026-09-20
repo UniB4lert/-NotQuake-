@@ -50,7 +50,7 @@ Binaries/*
 Plugins/**/Binaries/*
 
 #FMOD
-Content/FMOD/*
+# Content/FMOD/*
 
 # Builds
 Build/*
